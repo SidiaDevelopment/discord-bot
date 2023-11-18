@@ -1,0 +1,27 @@
+{
+    "name": "@sidia/discord",
+    "version": "1.0.0",
+    "description": "Discord module for the sidia-bot",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SidiaDevelopment/discord-bot",
+        "directory": "packages/discord"
+    },
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc -w"
+    },
+    "main": "./dist/lib/index.js",
+    "types": "./dist/types/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@sidia/config": "workspace:^",
+        "@sidia/core": "workspace:^",
+        "@sidia/logging": "workspace:^",
+        "@sidia/service": "workspace:^",
+        "chalk": "^4",
+        "discord.js": "^14.14.1"
+    }
+}

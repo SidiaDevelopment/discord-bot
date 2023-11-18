@@ -1,0 +1,30 @@
+{
+    "name": "@sidia/bot",
+    "version": "1.0.0",
+    "description": "Bot application for the sidia-bot",
+    "main": "src/index.ts",
+    "author": "Marvin Fischer <admin@sidia.net>",
+    "packageManager": "yarn@4.0.2",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SidiaDevelopment/discord-bot",
+        "directory": "apps/bot"
+    },
+    "scripts": {
+        "dev": "nodemon --watch \"./src/**/*.ts\" --exec ",
+        "start": "ts-node src/index.ts"
+    },
+    "dependencies": {
+        "@sidia/config": "workspace:^",
+        "@sidia/core": "workspace:^",
+        "@sidia/discord": "workspace:^",
+        "@sidia/discord-command": "workspace:^",
+        "@sidia/service": "workspace:^",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.9.0",
+        "nodemon": "^3.0.1"
+    }
+}

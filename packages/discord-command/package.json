@@ -1,0 +1,27 @@
+{
+  "name": "@sidia/discord-command",
+  "version": "1.0.0",
+  "description": "Discord command module for the sidia-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SidiaDevelopment/discord-bot",
+    "directory": "packages/discord-command"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "main": "./dist/lib/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@sidia/config": "workspace:^",
+    "@sidia/core": "workspace:^",
+    "@sidia/discord": "workspace:^",
+    "@sidia/logging": "workspace:^",
+    "@sidia/service": "workspace:^",
+    "discord.js": "^14.14.1"
+  }
+}

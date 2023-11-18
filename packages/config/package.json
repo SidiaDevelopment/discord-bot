@@ -1,0 +1,23 @@
+{
+    "name": "@sidia/config",
+    "version": "1.0.0",
+    "description": "Config module for the sidia-bot",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SidiaDevelopment/discord-bot",
+        "directory": "packages/config"
+    },
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc -w"
+    },
+    "main": "./dist/lib/index.js",
+    "types": "./dist/types/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@sidia/core": "workspace:^",
+        "deepmerge": "^4.3.1"
+    }
+}

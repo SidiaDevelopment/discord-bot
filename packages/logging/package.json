@@ -1,0 +1,25 @@
+{
+  "name": "@sidia/logging",
+  "version": "1.0.0",
+  "description": "Logging module for the sidia-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SidiaDevelopment/discord-bot",
+    "directory": "packages/logging"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "main": "./dist/lib/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@sidia/config": "workspace:^",
+    "@sidia/core": "workspace:^",
+    "chalk": "^4",
+    "moment": "^2.29.4"
+  }
+}

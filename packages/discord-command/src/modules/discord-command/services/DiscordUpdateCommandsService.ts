@@ -1,8 +1,6 @@
 import {injectService, Service} from "@sidia/service"
 import {useContext} from "@sidia/core"
 import {ConfigContext} from "@sidia/config"
-import {DiscordCommandController} from "../../../discord-command/DiscordCommandController"
-import {IDiscordCommandControllerData} from "../../../discord-command/IDiscordCommandControllerData"
 import {
     APIApplicationCommandOptionChoice,
     ApplicationCommandOptionType,
@@ -13,10 +11,13 @@ import {
     REST,
     Routes,
 } from "discord.js"
-import {IDiscordCommandOption} from "../../../discord-command/IDiscordCommandOption"
-import {IDiscordCommandData} from "../../../discord-command/IDiscordCommandData"
 import {DiscordService} from "@sidia/discord"
 import {LoggingContext, LogLevel} from "@sidia/logging"
+import {IDiscordCommandControllerData} from "../../../IDiscordCommandControllerData"
+import {DiscordCommandController} from "../../../DiscordCommandController"
+import {IDiscordCommandOption} from "../../../IDiscordCommandOption"
+import {IDiscordCommandData} from "../../../IDiscordCommandData"
+import { translate } from "@sidia/i18n"
 
 enum BranchType {
     SelfCommand,
@@ -45,7 +46,7 @@ export class DiscordUpdateCommandsService extends Service {
         await this.updateCommands()
     }
 
-    private async updateCommands() {
+    public async updateCommands() {
         const commands = DiscordCommandController.getAllCommands()
         const tree = this.buildCommandTree(commands)
         const builtCommands = await this.buildCommands(tree)
@@ -65,6 +66,7 @@ export class DiscordUpdateCommandsService extends Service {
             await logger.log("@sidia/discord-commands", LogLevel.Debug, "Started refreshing application commands.")
 
             const rest = new REST({version: "10"}).setToken(key)
+
             await rest.put(
                 Routes.applicationCommands(app.id),
                 {body: builtCommands},
@@ -128,7 +130,11 @@ export class DiscordUpdateCommandsService extends Service {
     private buildCommandLeaf = async (name: string, treeData: ICommandTreeData, builder: SlashCommandBuilder | SlashCommandSubcommandBuilder): Promise<void> => {
         const instance = treeData.data!.instance
         builder.setName(name)
-        builder.setDescription(instance.config.description)
+        builder.setDescription(translate(instance.config.description))
+        builder.setDescriptionLocalizations({
+            de: translate(instance.config.description, "de")
+        })
+
         const params = instance.config.options as IDiscordCommandOption<IDiscordCommandData>[]
         if (!params) return
 
@@ -172,8 +178,11 @@ export class DiscordUpdateCommandsService extends Service {
 
         return (option: any) => {
             option.setName(parameter.name)
-            option.setDescription(parameter.description)
+            option.setDescription(translate(parameter.description))
             option.setRequired(!!parameter.required)
+            option.setDescriptionLocalizations({
+                de: translate(parameter.description, "de")
+            })
             if (parameter.autocomplete) {
                 option.setAutocomplete(!!parameter.autocomplete)
             }

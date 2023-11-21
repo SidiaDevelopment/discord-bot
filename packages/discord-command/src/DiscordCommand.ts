@@ -1,6 +1,6 @@
 import {Ctor} from "@sidia/core"
 import {IDiscordCommandData} from "./IDiscordCommandData"
-import {IDiscordCommandConfig} from "./IDiscordCommandConfig"
+import {IDiscordCommand} from "./IDiscordCommand"
 import {ChatInputCommandInteraction} from "discord.js"
 import {DiscordCommandParameterHelper} from "./utils/DiscordCommandParameterHelper"
 import {IDiscordCommandOption} from "./IDiscordCommandOption"
@@ -17,7 +17,7 @@ declare module "@sidia/core/types" {
 }
 
 export abstract class DiscordCommand<T extends IDiscordCommandData> {
-    public config!: IDiscordCommandConfig<T>
+    public config!: IDiscordCommand<T>
 
     public execute = async (interaction: ChatInputCommandInteraction) => {
         const data = this.collectData(interaction)

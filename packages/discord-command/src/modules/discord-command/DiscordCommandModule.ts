@@ -1,8 +1,9 @@
 import {IModule} from "@sidia/core/types"
 import {DiscordCommandService} from "./services/DiscordCommandService"
 import {DiscordUpdateCommandsService} from "./services/DiscordUpdateCommandsService"
-import {IModuleDiscordConfig} from "../../discord-command/DiscordCommand"
 import {UpdateCommandsCommand} from "./commands/discord/UpdateCommandsCommand"
+import {IModuleDiscordConfig} from "../../DiscordCommand"
+import {DiscordCommandLocalizations} from "./DiscordCommandDeclaration"
 
 export class DiscordCommandModule implements IModule {
     public name: string = "discord-command"
@@ -16,4 +17,5 @@ export class DiscordCommandModule implements IModule {
             UpdateCommandsCommand
         ]
     }
+    public localizations = DiscordCommandLocalizations
 }

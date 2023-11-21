@@ -1,8 +1,13 @@
 import {IModule} from "@sidia/core/types"
-import {PingService} from "./services/PingService"
-import {PongService} from "./services/PongService"
+import {IModuleDiscordConfig} from "@sidia/discord-command"
+import {PingCommand} from "./commands/PingCommand"
+import {PingLocalizations} from "./PingDeclaration"
 
 export class PingModule implements IModule {
-    public name: string = "ping"
-    public services = [PingService, PongService]
+    public name = "ping"
+    public discord: IModuleDiscordConfig = {
+        tag: "ping",
+        discordCommands: [PingCommand]
+    }
+    public localizations = PingLocalizations
 }

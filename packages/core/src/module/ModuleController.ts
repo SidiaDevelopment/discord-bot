@@ -1,6 +1,8 @@
 import {IModule} from "@sidia/core/types"
 import {CallbackEvent} from "../event/CallbackEvent"
 import {Ctor} from "../utils/Ctor"
+import {addContextData} from "../context/hooks/addContextData"
+import {ControllerContext} from "../contexts/ControllerContext"
 
 /**
  * Control all modules
@@ -34,3 +36,6 @@ export class ModuleController {
         this.moduleInstances.push(instance)
     }
 }
+addContextData(ControllerContext, {
+    moduleController: new ModuleController()
+})

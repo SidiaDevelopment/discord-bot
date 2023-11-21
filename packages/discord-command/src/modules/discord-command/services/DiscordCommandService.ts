@@ -1,16 +1,16 @@
-import {Interaction} from "discord.js"
+import {Events, Interaction} from "discord.js"
 import {useContext} from "@sidia/core"
 import {LoggingContext, LogLevel} from "@sidia/logging"
 import {injectService, Service} from "@sidia/service"
 import {DiscordEventService} from "@sidia/discord"
-import {DiscordCommandController} from "../../../discord-command/DiscordCommandController"
+import {DiscordCommandController} from "../../../DiscordCommandController"
 
 export class DiscordCommandService extends Service {
     @injectService
     private discordEventService!: DiscordEventService
 
     public init = async (): Promise<void> => {
-        this.discordEventService.subscribe("interactionCreate", this.onInteraction)
+        this.discordEventService.subscribe(Events.InteractionCreate, this.onInteraction)
     }
 
     private onInteraction(interaction: Interaction) {

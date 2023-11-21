@@ -20,6 +20,7 @@
         "@sidia/discord": "workspace:^",
         "@sidia/discord-command": "workspace:^",
         "@sidia/service": "workspace:^",
+        "discord.js": "^14.14.1",
         "ts-node": "^10.9.1",
         "typescript": "^5.2.2"
     },

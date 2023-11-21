@@ -1,11 +1,11 @@
 {
-  "name": "@sidia/discord-command",
+  "name": "@sidia/i18n",
   "version": "1.0.0",
-  "description": "Discord command module for the sidia-bot",
+  "description": "i18n module for the sidia-bot",
   "repository": {
     "type": "git",
     "url": "https://github.com/SidiaDevelopment/discord-bot",
-    "directory": "packages/discord-command"
+    "directory": "packages/i18n"
   },
   "scripts": {
     "build": "tsc",
@@ -17,12 +17,8 @@
     "dist"
   ],
   "dependencies": {
-    "@sidia/config": "workspace:^",
     "@sidia/core": "workspace:^",
-    "@sidia/discord": "workspace:^",
-    "@sidia/i18n": "workspace:^",
     "@sidia/logging": "workspace:^",
-    "@sidia/service": "workspace:^",
-    "discord.js": "^14.14.1"
+    "deepmerge": "^4.3.1"
   }
 }

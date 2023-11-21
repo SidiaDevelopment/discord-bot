@@ -983,6 +983,7 @@ __metadata:
     "@sidia/discord-command": "workspace:^"
     "@sidia/service": "workspace:^"
     "@types/node": "npm:^20.9.0"
+    discord.js: "npm:^14.14.1"
     nodemon: "npm:^3.0.1"
     ts-node: "npm:^10.9.1"
     typescript: "npm:^5.2.2"
@@ -1011,6 +1012,7 @@ __metadata:
     "@sidia/config": "workspace:^"
     "@sidia/core": "workspace:^"
     "@sidia/discord": "workspace:^"
+    "@sidia/i18n": "workspace:^"
     "@sidia/logging": "workspace:^"
     "@sidia/service": "workspace:^"
     discord.js: "npm:^14.14.1"
@@ -1027,6 +1029,16 @@ __metadata:
     "@sidia/service": "workspace:^"
     chalk: "npm:^4"
     discord.js: "npm:^14.14.1"
+  languageName: unknown
+  linkType: soft
+
+"@sidia/i18n@workspace:^, @sidia/i18n@workspace:packages/i18n":
+  version: 0.0.0-use.local
+  resolution: "@sidia/i18n@workspace:packages/i18n"
+  dependencies:
+    "@sidia/core": "workspace:^"
+    "@sidia/logging": "workspace:^"
+    deepmerge: "npm:^4.3.1"
   languageName: unknown
   linkType: soft
 

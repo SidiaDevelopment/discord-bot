@@ -27,7 +27,7 @@ export abstract class DiscordCommand<T extends IDiscordCommandData> {
     private collectData(interaction: ChatInputCommandInteraction): T {
         const standardData = this.collectStandardData(interaction)
 
-        const params = this.config.options as IDiscordCommandOption<IDiscordCommandData>[]
+        const params = this.config.options as IDiscordCommandOption<IDiscordCommandData>[] | undefined
         const parameterData = DiscordCommandParameterHelper.collectParameters(params ?? [], interaction)
 
         return {...standardData, ...parameterData} as T

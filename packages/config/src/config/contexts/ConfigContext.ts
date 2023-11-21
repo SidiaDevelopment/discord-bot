@@ -4,9 +4,6 @@ import {IConfigContext, ICoreCreateOptions} from "@sidia/core/types"
 
 export class ConfigContext extends Context<IConfigContext> {
     public addData(data: Partial<IConfigContext>): void {
-        if (!this.data)
-            this.data = {} as IConfigContext
-
         this.data = deepmerge(this.data, data)
     }
 

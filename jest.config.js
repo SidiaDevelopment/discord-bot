@@ -1,14 +1,21 @@
 module.exports = {
-    transform: {"^.+\\.ts?$": "ts-jest"},
+    transform: {
+        "^.+\\.ts?$": [
+            "ts-jest",
+            {
+                diagnostics: false
+            }
+        ]
+    },
     testEnvironment: "node",
     testRegex: "/tests/.*\\.(test|spec)?\\.(ts|tsx)$",
-    moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-    collectCoverage: true,
+    moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node", "!d.ts"],
+    preset: "ts-jest",
     collectCoverageFrom: [
-        "**/*.ts",
+        "packages/**/*.ts",
         "!**/node_modules/**",
         "!**/*.d.ts",
         "!**/*.template.ts"
     ],
-    coverageReporters: ["text"]
+    coverageReporters: ["text"],
 }

@@ -23,8 +23,8 @@ export class DiscordCommandService extends Service {
 
         const {logger} = useContext(LoggingContext)
 
-        const instance = DiscordCommandController.getCommand(commandName, subCommand, subCommandGroup)
-        if (!instance) {
+        const data = DiscordCommandController.getCommand(commandName, subCommand, subCommandGroup)
+        if (!data) {
             logger.log(
                 "@sidia/discord-command",
                 LogLevel.Error,
@@ -37,6 +37,6 @@ export class DiscordCommandService extends Service {
             LogLevel.Debug,
             `Executing command for chain: ${DiscordCommandController.getUniqueIdentifier(commandName, subCommand, subCommandGroup)}`
         )
-        instance?.execute(interaction)
+        data?.instance?.execute(interaction)
     }
 }

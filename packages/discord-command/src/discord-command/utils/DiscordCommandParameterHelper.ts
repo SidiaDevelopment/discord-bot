@@ -39,12 +39,6 @@ export class DiscordCommandParameterHelper {
         case ApplicationCommandOptionType.Number:
             data[name] = interaction.options.getNumber(name)
             break
-        case ApplicationCommandOptionType.Subcommand:
-            data[name] = interaction.options.getSubcommand()
-            break
-        case ApplicationCommandOptionType.SubcommandGroup:
-            data[name] = interaction.options.getSubcommandGroup()
-            break
         }
     }
 }

@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --collectCoverage",
     "lint": "eslint . --ext .ts",
     "dev": "ts-node scripts/dev.ts",
     "turbo": "turbo build --output-logs new-only",

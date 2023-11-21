@@ -2,9 +2,6 @@ import {MockContext} from "./contexts/MockContext"
 import {Contexts} from "../src/context/Contexts"
 import {MOCK_CONTEXT_NUMBER, MockContextData} from "./contexts/MockContextData"
 import {MockFailureContext} from "./contexts/MockFailureContext"
-import {createContext} from "../src/context/hooks/createContext"
-import {addContextData} from "../src/context/hooks/addContextData"
-import {useContext} from "../src/context/hooks/useContext"
 
 describe("Context", () => {
     let context: MockContext

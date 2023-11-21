@@ -1,3 +1,5 @@
+import {useContext} from "@sidia/core"
+import {LoggingContext, LogLevel} from "@sidia/logging"
 import {IDiscordCommandControllerData} from "./IDiscordCommandControllerData"
 import {DiscordCommand} from "./DiscordCommand"
 
@@ -5,10 +7,16 @@ export class DiscordCommandController {
     private static commands: Record<string, IDiscordCommandControllerData> = {}
 
     public static addCommand(command: DiscordCommand<any>): void {
+        if (!command.config) {
+            const {logger} = useContext(LoggingContext)
+            logger.log("@sidia/discord-command", LogLevel.Error, `Missing @command decorator on command ${command.constructor.name}`)
+            return
+        }
+
         const identifier = DiscordCommandController.getUniqueIdentifier(
             command.config.command,
-            command.config.subCommand || null,
-            command.config.subCommandGroup || null
+            command.config.subCommand ?? null,
+            command.config.subCommandGroup ?? null
         )
 
         DiscordCommandController.commands[identifier] = {
@@ -38,12 +46,10 @@ export class DiscordCommandController {
         return commands
     }
 
-    public static getCommand(command: string, subCommand: string | null, subCommandGroup: string | null): DiscordCommand<any> | null {
+    public static getCommand(command: string, subCommand: string | null, subCommandGroup: string | null): IDiscordCommandControllerData | null {
         const predicate = (element: IDiscordCommandControllerData) =>
             element.command == command && element.subCommand == subCommand && element.subCommandGroup == subCommandGroup
-        const commandData = DiscordCommandController.getByPredicate(predicate)
-
-        return commandData?.instance ?? null
+        return DiscordCommandController.getByPredicate(predicate)
     }
 
     public static getByPredicate(predicate: (element: IDiscordCommandControllerData) => boolean): IDiscordCommandControllerData | null {

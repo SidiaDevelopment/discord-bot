@@ -1,6 +1,6 @@
+import {IModule} from "@sidia/core/types"
 import {CallbackEvent} from "../event/CallbackEvent"
 import {Ctor} from "../utils/Ctor"
-import {IModule} from "@sidia/core/types"
 
 /**
  * Control all modules

@@ -1,6 +1,6 @@
 import {ILogger} from "./ILogger"
 import {LogLevel} from "./LogLevel"
-import {useContext} from "@sidia/core"
+import {Ctor, useContext} from "@sidia/core"
 import {ConfigContext} from "@sidia/config"
 
 export class LogBroadcaster implements ILogger {
@@ -12,12 +12,16 @@ export class LogBroadcaster implements ILogger {
         if (!logger) return
 
         for (const loggerElement of logger) {
-            const instance = new loggerElement()
-            await instance.init()
-
-            this.loggers.push(instance)
+            await this.addLogger(loggerElement)
         }
 
+    }
+
+    public addLogger = async (loggerElement: Ctor<ILogger>) => {
+        const instance = new loggerElement()
+        await instance.init()
+
+        this.loggers.push(instance)
     }
 
     public filter = async (_: LogLevel): Promise<boolean> => {

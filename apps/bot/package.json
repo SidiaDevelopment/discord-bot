@@ -17,6 +17,7 @@
     "dependencies": {
         "@sidia/config": "workspace:^",
         "@sidia/core": "workspace:^",
+        "@sidia/database": "workspace:^",
         "@sidia/discord": "workspace:^",
         "@sidia/discord-command": "workspace:^",
         "@sidia/service": "workspace:^",

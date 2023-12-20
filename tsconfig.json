@@ -1,19 +1,20 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "CommonJS",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "declaration": true,
-        "skipLibCheck": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "sourceMap": true,
-        "useDefineForClassFields": false,
-        "resolveJsonModule": true
-    },
-    "exclude": [
-        "**/dist"
-    ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true,
+    "strictPropertyInitialization": false
+  },
+  "exclude": [
+    "**/dist"
+  ]
 }

@@ -1,0 +1,25 @@
+{
+  "name": "@sidia/settings",
+  "version": "1.0.0",
+  "description": "package-template module for the sidia-bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SidiaDevelopment/discord-bot",
+    "directory": "packages/package-template"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "main": "./dist/lib/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@sidia/core": "workspace:^",
+    "@sidia/i18n": "workspace:^",
+    "@sidia/logging": "workspace:^",
+    "@sidia/service": "workspace:^"
+  }
+}

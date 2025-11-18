@@ -14,7 +14,8 @@ core.create({
         PingModule,
         DiscordModule,
         DiscordCommandModule,
-        DatabaseModule
+        DatabaseModule,
     ],
     config: config
 }).then(core.start)
+

@@ -1,4 +1,3 @@
-import {ModuleController} from "./module/ModuleController"
 import {CallbackEvent} from "./event/CallbackEvent"
 import {ICoreCreateOptions} from "@sidia/core/types"
 import {useContext} from "./context/hooks/useContext"

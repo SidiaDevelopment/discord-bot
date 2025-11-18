@@ -1,13 +1,8 @@
-import {IDiscordCommand} from "../IDiscordCommand"
-import {DiscordCommand} from "../DiscordCommand"
 import {Ctor} from "@sidia/core"
-import {IDiscordCommandData} from "../IDiscordCommandData"
-import {DiscordCommandController} from "../DiscordCommandController"
+import {DatabaseService} from "../modules/database/services/DatabaseService"
 
-export const command = <T extends IDiscordCommandData>(data: IDiscordCommand<T>) => {
-    return (ctor: Ctor<DiscordCommand<T>>): void => {
-        const instance = new ctor()
-        instance.config = data
-        DiscordCommandController.addCommand(instance)
+export const autoLoadEntity = () => {
+    return (ctor: Ctor<any>): void => {
+        // DatabaseService.entities.push(ctor)
     }
 }

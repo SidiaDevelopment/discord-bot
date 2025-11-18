@@ -49,10 +49,10 @@ export class DiscordCommandController {
     public static getCommand(command: string, subCommand: string | null, subCommandGroup: string | null): IDiscordCommandControllerData | null {
         const predicate = (element: IDiscordCommandControllerData) =>
             element.command == command && element.subCommand == subCommand && element.subCommandGroup == subCommandGroup
-        return DiscordCommandController.getByPredicate(predicate)
+        return DiscordCommandController.findCommand(predicate)
     }
 
-    public static getByPredicate(predicate: (element: IDiscordCommandControllerData) => boolean): IDiscordCommandControllerData | null {
+    public static findCommand(predicate: (element: IDiscordCommandControllerData) => boolean): IDiscordCommandControllerData | null {
         return Object.values(DiscordCommandController.commands).find(predicate) ?? null
     }
 }

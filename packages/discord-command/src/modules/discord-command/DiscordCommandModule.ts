@@ -11,7 +11,7 @@ export class DiscordCommandModule implements IModule {
         DiscordCommandService,
         DiscordUpdateCommandsService
     ]
-    public discord?: IModuleDiscordConfig = {
+    public discord: IModuleDiscordConfig = {
         tag: "DiscordCommands",
         discordCommands: [
             UpdateCommandsCommand

@@ -22,8 +22,6 @@ export class PingCommand extends DiscordCommand<IDiscordCommandData> {
     public async handle({interaction}: IDiscordCommandData): Promise<void> {
         const client = this.discordService.getClient()
 
-        const timestamp = Date.now()
-
         const rtt = client.ws.ping;
         const rttString = rtt == -1 ? "still evaluating" : rtt + "ms"
         const message = new EmbedBuilder()
